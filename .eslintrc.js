@@ -22,4 +22,47 @@ module.exports = {
   ],
   rules: {
   },
+};module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+  },
+  extends: [
+    'plugin:vue/essential',
+    'airbnb-base',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 2018,
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+  },
+  plugins: [
+    'vue',
+    '@typescript-eslint',
+  ],
+  rules: {
+       'import/extensions': [
+         'error',
+         'ignorePackages',
+         {
+           js: 'never',
+           mjs: 'never',
+           jsx: 'never',
+           ts: 'never',
+           tsx: 'never',
+         },
+       ],
+     },
+     settings: {
+       'import/resolver': {
+         node: {
+           extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+         },
+       },
+     },
 };
+
