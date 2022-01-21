@@ -6,19 +6,11 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
+import store from '../store';
 
 export default {
-  data() {},
   mounted() {
-    axios
-      .get('https://akabab.github.io/superhero-api/api/all.json')
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    store.dispatch('setHeroes');
   },
   methods: {},
 };
