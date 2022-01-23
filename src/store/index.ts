@@ -3,7 +3,7 @@ import all from '../assets/ts/api/heroes.api';
 
 export default createStore({
   state: {
-    heroes: { hero: true },
+    heroes: null,
   },
   mutations: {
     /* eslint-disable no-param-reassign */
