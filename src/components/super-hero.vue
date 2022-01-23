@@ -45,15 +45,25 @@ export default defineComponent({
   width: 300px;
   height: 200px;
   perspective: 1000px;
-}
-
-.clip__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    &--front {
+      border: 1px solid black;
+      color: black;
+    }
+    &--back {
+      opacity: 0;
+      color: white;
+      clip-path: inset(50% round 50%);
+      background-color: rgba(0, 0, 0, 0.65);
+      animation: circleOut 0.75s;
+    }
+  }
 }
 
 .clip:hover .clip__inner--back {
@@ -64,22 +74,10 @@ export default defineComponent({
 
 .clip__inner--front,
 .clip__inner--back {
-  width: 200px;
+  // TODO: solve initial display
+  width: 100%;
   height: 300px;
   position: absolute;
-}
-
-.clip__inner--front {
-  border: 1px solid black;
-  color: black;
-}
-
-.clip__inner--back {
-  opacity: 0;
-  color: white;
-  clip-path: inset(50% round 50%);
-  background-color: rgba(0, 0, 0, 0.65);
-  animation: circleOut 0.75s;
 }
 
 img {

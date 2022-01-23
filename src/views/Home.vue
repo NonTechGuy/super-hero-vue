@@ -58,7 +58,7 @@ export default defineComponent({
 }
 .layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
   grid-gap: 8px;
   justify-content: center;
   padding: initial;
