@@ -5,6 +5,16 @@
       v-if="hero.images"
       :src="hero.images['md']"
     >
+    <div>
+      <button
+        class="btn"
+        @click="save(hero)"
+      >Save hero</button>
+      <button
+        class="btn"
+        @click="$router.push('/saved')"
+      >View saved heroes</button>
+    </div>
   </div>
 </template>
 
@@ -22,7 +32,11 @@ export default {
       return store.getters.hero;
     },
   },
-  methods: {},
+  methods: {
+    save(hero: object) {
+      store.dispatch('save', hero);
+    },
+  },
 };
 </script>
 
