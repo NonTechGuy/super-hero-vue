@@ -32,7 +32,9 @@ export default defineComponent({
   name: 'Home',
   components: { superhero },
   mounted() {
-    store.dispatch('setHeroes');
+    if (!store.getters.loaded) {
+      store.dispatch('setHeroes');
+    }
   },
   computed: {
     heroes() {
