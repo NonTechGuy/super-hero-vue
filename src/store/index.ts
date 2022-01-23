@@ -1,15 +1,18 @@
 import { createStore } from 'vuex';
-import all from '../assets/ts/api/heroes.api';
+import { all, id } from '../assets/ts/api/heroes.api';
 
 export default createStore({
   state: {
-    heroes: null,
+    heroes: [],
+    hero: null,
   },
   mutations: {
     /* eslint-disable no-param-reassign */
     setHeroes(state, heroes) {
       state.heroes = heroes;
-      console.log(heroes);
+    },
+    setHero(state, hero) {
+      state.hero = hero;
     },
   },
   actions: {
@@ -18,10 +21,14 @@ export default createStore({
       if (err) console.log(err); // TODO: display error notification
       else commit('setHeroes', heroes);
     },
+    async setHero({ commit }, _id) {
+      const [err, hero] = await id(_id);
+      if (err) console.log(err); // TODO: display error notification
+      else commit('setHero', hero);
+    },
   },
   getters: {
     heroes: (state) => state.heroes,
-  },
-  modules: {
+    hero: (state) => state.hero,
   },
 });

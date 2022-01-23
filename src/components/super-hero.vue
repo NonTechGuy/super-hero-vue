@@ -19,7 +19,7 @@
           <div class="stats__column stats__column--right">{{value}}</div>
         </div>
 
-        <button>More Info</button>
+        <button @click="to(data.hero.id)">More Info</button>
       </div>
     </div>
   </div>
@@ -36,6 +36,11 @@ export default defineComponent({
     },
   },
   mounted() {},
+  methods: {
+    to(id: string) {
+      this.$router.push(`/superhero/${id}`);
+    },
+  },
 });
 </script>
 
