@@ -1,17 +1,26 @@
 <template>
   <div v-if="hero">
-    <h1>{{hero.name}}</h1>
-    <img
-      v-if="hero.images"
-      :src="hero.images['md']"
-    >
+    <div style="text-align:left;">
+      <button
+        class="button-80"
+        @click="$router.push('/')"
+        role="button"
+      >Back</button>
+    </div>
+    <div>
+      <h1>{{hero.name}}</h1> <!-- TODO: display more stats -->
+      <img
+        v-if="hero.images"
+        :src="hero.images['md']"
+      >
+    </div>
     <div>
       <button
-        class="btn"
+        class="button-80"
         @click="save(hero)"
       >Save hero</button>
       <button
-        class="btn"
+        class="button-80"
         @click="$router.push('/saved')"
       >View saved heroes</button>
     </div>
@@ -41,4 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img {
+  border: 1px solid black;
+}
 </style>
