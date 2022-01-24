@@ -51,7 +51,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  opacity: 0;
+  animation: fadeIn 1s 1s;
+  animation-fill-mode: forwards;
+}
 img {
+  opacity: 0;
   border: 1px solid black;
+  animation: fadeIn 1s 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
