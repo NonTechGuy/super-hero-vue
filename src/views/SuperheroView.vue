@@ -2,7 +2,7 @@
   <div v-if="hero">
     <div style="text-align:left;">
       <button
-        class="button-80"
+        class="button"
         @click="$router.push('/')"
         role="button"
       >Back</button>
@@ -16,11 +16,12 @@
     </div>
     <div>
       <button
-        class="button-80"
+        style="margin-right: 0.5rem"
+        class="button"
         @click="save(hero)"
       >Save hero</button>
       <button
-        class="button-80"
+        class="button"
         @click="$router.push('/saved')"
       >View saved heroes</button>
     </div>

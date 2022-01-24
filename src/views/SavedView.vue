@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div>
+    <div style="text-align:left;">
       <button
-        class="btn"
+        class="button"
         @click="$router.push('/')"
+        role="button"
       >Back</button>
     </div>
     <div
@@ -34,6 +35,11 @@ export default defineComponent({
   computed: {
     heroes() {
       return store.getters.saved;
+    },
+  },
+  methods: {
+    selected() {
+      console.log('selected');
     },
   },
 });

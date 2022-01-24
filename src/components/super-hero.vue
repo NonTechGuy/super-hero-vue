@@ -1,26 +1,35 @@
 <template>
   <div class="clip">
     <div class="clip__inner">
-      <div class="clip__inner--front">
+      <section class="clip__inner--front">
         <img
           class="flip__inner--front-img"
           v-if="data.hero.images"
           :src="data.hero.images['sm']"
         >
-      </div>
-      <div class="clip__inner--back">
-        <h3>{{data.hero.name}}</h3>
-        <div
-          class="stats"
-          v-for="(value, name) in data.hero.powerstats"
-          :key="name"
-        >
-          <div class="stats__column stats__column--left">{{name}}</div>
-          <div class="stats__column stats__column--right">{{value}}</div>
+      </section>
+      <section class="clip__inner--back">
+        <h2>{{data.hero.name}}</h2>
+        <div>
+          <div
+            class="stats"
+            v-for="(value, name) in data.hero.powerstats"
+            :key="name"
+          >
+            <div
+              class="stats__column stats__column--left"
+              style=""
+            >{{name}}</div>
+            <div class="stats__column stats__column--right">{{value}}</div>
+          </div>
         </div>
 
-        <button @click="to(data.hero.id)">More Info</button>
-      </div>
+        <button
+          class="button button--show"
+          style="margin:0.5rem"
+          @click="to(data.hero.id)"
+        >Show more</button>
+      </section>
     </div>
   </div>
 </template>
@@ -62,11 +71,14 @@ export default defineComponent({
       color: black;
     }
     &--back {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       opacity: 0;
       color: white;
       clip-path: inset(50% round 50%);
       background-color: rgba(0, 0, 0, 0.65);
-      animation: circleOut 0.75s;
+      // animation: circleOut 0.75s;
     }
   }
 }
@@ -84,7 +96,6 @@ export default defineComponent({
   height: 300px;
   position: absolute;
 }
-
 img {
   width: 100%;
   height: 100%;
