@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import { notify } from '@kyvg/vue3-notification';
 import { all, id } from '../assets/ts/api/heroes.api';
 
 export default createStore({
@@ -24,16 +25,17 @@ export default createStore({
   actions: {
     async setHeroes({ commit }) {
       const [err, heroes] = await all();
-      if (err) console.log(err); // TODO: display error notification
+      if (err) notify({ text: 'Error getting super heroes', type: 'error' });
       else commit('setHeroes', heroes);
     },
     async setHero({ commit }, _id) {
       const [err, hero] = await id(_id);
-      if (err) console.log(err); // TODO: display error notification
+      if (err) notify({ text: 'Oops, something went wrong!', type: 'error' });
       else commit('setHero', hero);
     },
     save({ commit }, hero) {
       commit('saveHero', hero);
+      notify({ text: 'Saved your super hero!', type: 'success' });
     },
   },
   getters: {
